@@ -1,14 +1,15 @@
 {
   "name": "hyperfeed-merge",
   "version": "1.0.0",
-  "description": "",
+  "description": "merge multiple hyperfeed into one",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/tape test.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["hyperfeed"],
+  "author": "Poga Po<poga.bahamut@gmail.com>",
+  "license": "MIT",
+  "repository": "poga/hyperfeed-merge",
   "dependencies": {
     "hyperfeed": "^1.15.1",
     "merge-stream": "^1.0.0",
