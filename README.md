@@ -4,33 +4,29 @@ Merge multiple hyperfeed into one.
 
 [![NPM Version](https://img.shields.io/npm/v/hyperfeed-merge.svg)](https://www.npmjs.com/package/hyperfeed-merge) [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-`npm i hyperfeed`
+`npm i hyperfeed-merge`
 
 ## Synopsis
 
 ```js
 const merge = require('hyperfeed-merge')
-var feed1 = new Hyperfeed()
-var feed2 = new Hyperfeed()
 
-var merged = merge([feed1, feed2]) // all updates to feed1 and feed2 will be merged into this feed
+var hf = hyperfeed()
+var feed1 = hf.createFeed()
+var feed2 = hf.createFeed()
+
+var out = hf.createFeed()
+merge([feed1, feed2], out) // all updates to feed1 and feed2 will be merged into this feed
+
+feed1.push({title: 'foo'}) // **caution**: this promise will be resolved **before** item is pushed into `out`
+                           // use list({live: true}) to get merged output since we can't sure when it will be merged
 ```
 
 ## API
 
-#### `merge(feeds, opts)`
+#### `merge(feeds, out)`
 
-Merge feeds into one feed.
-
-Options include:
-
-```js
-{
-  storage: level('./db'), // optional, a level db instance
-  key: <KEY>, // optional, pass a key if you want to reuse existed merge feed.
-  own: // if key is given, set to true if you own the feed.
-}
-```
+Merge feeds into one `out` feed.
 
 ## License
 

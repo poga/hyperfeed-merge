@@ -13,11 +13,12 @@
   "license": "MIT",
   "repository": "poga/hyperfeed-merge",
   "dependencies": {
-    "hyperfeed": "^1.15.1",
     "merge-stream": "^1.0.0",
     "through2": "^2.0.1"
   },
   "devDependencies": {
+    "hyperfeed": "^2.0.0",
+    "level": "^1.4.0",
     "tape": "^4.6.2"
   }
 }
