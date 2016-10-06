@@ -11,7 +11,7 @@ function merge (ins, out) {
 
   out.setMeta({title: 'merge', description: ins.map(f => f.key().toString('hex')).join(',')})
   ms.on('data', x => {
-    out.push(Object.assign({}, x.item, {"hf:merge:source": x.source}))
+    out.push(Object.assign({}, x.item, {'hf:merge:source': x.source}))
   })
 
   return out

@@ -1,7 +1,6 @@
 const tape = require('tape')
 const mergeFeed = require('.')
 const hyperfeed = require('hyperfeed')
-const memdb = require('memdb')
 
 var hf = hyperfeed()
 
@@ -18,10 +17,10 @@ tape('merge', function (t) {
     if (results.length === 2) {
       out.load(results[0]).then(item0 => {
         t.same(item0.title, 'foo')
-        t.ok(item0["hf:merge:source"])
+        t.ok(item0['hf:merge:source'])
         out.load(results[1]).then(item1 => {
           t.same(item1.title, 'bar')
-          t.ok(item1["hf:merge:source"])
+          t.ok(item1['hf:merge:source'])
 
           out.list((err, entries) => {
             t.error(err)
