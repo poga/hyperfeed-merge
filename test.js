@@ -29,8 +29,8 @@ tape('merge', function (t) {
       })
     }
   })
-  f1.push({title: 'foo'})
-  f2.push({title: 'bar'})
+  f1.save({title: 'foo'})
+  f2.save({title: 'bar'})
 })
 
 tape('scrapped', function (t) {
@@ -58,8 +58,8 @@ tape('scrapped', function (t) {
       })
     }
   })
-  f1.push({title: 'foo', guid: 'scrap/foo'})
-  f2.push({title: 'bar', guid: 'scrap/bar'})
+  f1.save({title: 'foo', guid: 'scrap/foo'})
+  f2.save({title: 'bar', guid: 'scrap/bar'})
 })
 
 tape('no scrapped', function (t) {
@@ -68,8 +68,8 @@ tape('no scrapped', function (t) {
   var out = hf.createFeed()
   mergeFeed([f1, f2], out)
 
-  f1.push({title: 'foo', guid: 'scrap/foo'}).then(() => {
-    return f2.push({title: 'bar', guid: 'scrap/bar'})
+  f1.save({title: 'foo', guid: 'scrap/foo'}).then(() => {
+    return f2.save({title: 'bar', guid: 'scrap/bar'})
   }).then(() => {
     out.list((err, entries) => {
       t.error(err)
