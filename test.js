@@ -17,10 +17,8 @@ tape('merge', function (t) {
     if (results.length === 2) {
       out.load(results[0]).then(item0 => {
         t.same(item0.title, 'foo')
-        t.ok(item0['hf:merge:source'])
         out.load(results[1]).then(item1 => {
           t.same(item1.title, 'bar')
-          t.ok(item1['hf:merge:source'])
 
           out.list((err, entries) => {
             t.error(err)
@@ -48,10 +46,8 @@ tape('scrapped', function (t) {
     if (results.length === 2) {
       out.load(results[0]).then(item0 => {
         t.same(item0.title, 'foo')
-        t.ok(item0['hf:merge:source'])
         out.load(results[1]).then(item1 => {
           t.same(item1.title, 'bar')
-          t.ok(item1['hf:merge:source'])
 
           out.list({withScrapped: true}, (err, entries) => {
             t.error(err)

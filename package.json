@@ -14,6 +14,7 @@
   "repository": "poga/hyperfeed-merge",
   "dependencies": {
     "merge-stream": "^1.0.0",
+    "string-to-stream": "^1.1.0",
     "through2": "^2.0.1"
   },
   "devDependencies": {
