@@ -58,23 +58,6 @@ tape('scrapped', function (t) {
       })
     }
   })
-  f1.save({title: 'foo', guid: 'scrap/foo'})
-  f2.save({title: 'bar', guid: 'scrap/bar'})
-})
-
-tape('no scrapped', function (t) {
-  var f1 = hf.createFeed()
-  var f2 = hf.createFeed()
-  var out = hf.createFeed()
-  mergeFeed([f1, f2], out)
-
-  f1.save({title: 'foo', guid: 'scrap/foo'}).then(() => {
-    return f2.save({title: 'bar', guid: 'scrap/bar'})
-  }).then(() => {
-    out.list((err, entries) => {
-      t.error(err)
-      t.same(entries.length, 0)
-      t.end()
-    })
-  })
+  f1.save({title: 'foo', guid: 'foo'}, null, 'fooData')
+  f2.save({title: 'bar', guid: 'bar'}, null, 'barData')
 })
