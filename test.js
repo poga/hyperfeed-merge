@@ -43,19 +43,9 @@ tape('scrapped', function (t) {
   var results = []
   rs.on('data', x => {
     results.push(x)
-    if (results.length === 2) {
-      out.load(results[0]).then(item0 => {
-        t.same(item0.title, 'foo')
-        out.load(results[1]).then(item1 => {
-          t.same(item1.title, 'bar')
-
-          out.list({withScrapped: true}, (err, entries) => {
-            t.error(err)
-            t.same(entries.length, 2)
-            t.end()
-          })
-        })
-      })
+    if (results.length === 4) {
+      t.same(results.map(x => x.name).sort(), ['bar', 'foo', 'scrap/bar', 'scrap/foo'])
+      t.end()
     }
   })
   f1.save({title: 'foo', guid: 'foo'}, null, 'fooData')

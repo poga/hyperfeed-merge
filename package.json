@@ -17,7 +17,7 @@
     "through2": "^2.0.1"
   },
   "devDependencies": {
-    "hyperfeed": "^2.3.2",
+    "hyperfeed": "^2.3.3",
     "level": "^1.4.0",
     "tape": "^4.6.2"
   }
