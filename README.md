@@ -6,6 +6,7 @@ Merge multiple hyperfeed into one.
 
 `npm i hyperfeed-merge`
 
+
 ## Synopsis
 
 ```js

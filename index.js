@@ -9,7 +9,7 @@ function merge (ins, out) {
     ms.add(feed.list({live: true, withScrapped: true}).pipe(through2.obj(transform(feed))))
   })
 
-  out.setMeta({title: 'merge', description: ins.map(f => f.key().toString('hex')).join(',')})
+  out.setMeta({title: 'merge', description: ins.map(f => f.key.toString('hex')).join(',')})
   ms.on('data', x => {
     if (isScrapped(x.entry.name)) {
       // TODO: we're using private API here so it's super ugly
